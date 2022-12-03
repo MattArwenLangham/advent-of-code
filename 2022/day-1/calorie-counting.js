@@ -2,6 +2,7 @@ const fs = require('fs')
 
 const data = fs.readFileSync('./input.txt', {encoding: 'utf8'})
 input = data.split("\r")
+input.push("\n")
 
 const highestCalories = (input) => {
     let currentCalorieCount = 0
