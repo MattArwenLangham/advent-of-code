@@ -28,17 +28,13 @@ const generateMap = (map) => {
 
 const moveCrates = (map, instructions) => {
     const crateMap = generateMap(map)
-    console.log(crateMap)
 
     for(let i = 0; i < instructions.length; i += 3){
         let quantity = parseInt(instructions[i])
         let target = instructions[i + 1]
         let destination = instructions[i + 2]
         let liftedCrates = crateMap[target].splice(0, quantity)
-
-        for(const crate of liftedCrates){
-            crateMap[destination].unshift(crate)
-        }
+        crateMap[destination].unshift(...liftedCrates)
     }
     
     //Definately a more efficient way to achieve this... Need refactor
