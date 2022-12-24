@@ -1,12 +1,9 @@
-//Parse the map.
-//Parse the instructions.
-
 const fs = require('fs')
 
-const data = fs.readFileSync('./test-input.txt', {encoding: 'utf8'})
+const data = fs.readFileSync('./input.txt', {encoding: 'utf8'})
 const map = data.slice(0, data.indexOf("move"))
 const instructionData = data.slice(data.indexOf("move"))
-const instructions = instructionData.replace(/(move )|(from )|(to )/g, "").replace(/\r\n/g, " ").split(" ")
+const instructions = instructionData.replace(/(move )|(from )|(to )/g, "").replace(/\n/g, " ").split(" ")
 const crates = /\w/g
 
 const generateMap = (map) => {
@@ -31,19 +28,24 @@ const generateMap = (map) => {
 
 const moveCrates = (map, instructions) => {
     const crateMap = generateMap(map)
-    // console.log(crateMap)
-    // console.log(instructions)
     for(let i = 0; i < instructions.length; i += 3){
         let quantity = parseInt(instructions[i])
         let target = instructions[i + 1]
         let destination = instructions[i + 2]
-        console.log({quantity, target, destination})
         let liftedCrates = crateMap[target].splice(0, quantity)
-        console.log(liftedCrates)
-        crateMap[destination].unshift(...liftedCrates)
-        console.log(crateMap)
+
+        for(const crate of liftedCrates){
+            crateMap[destination].unshift(crate)
+        }
     }
     
+    //Definately a more efficient way to achieve this... Need refactor
+    let answer = ""
+    for (const pile of Object.keys(crateMap)){
+        answer += crateMap[pile][0]
+    }
+
+    return answer
 }
 
 moveCrates(map, instructions)
