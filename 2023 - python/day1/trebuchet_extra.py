@@ -22,7 +22,7 @@ def generate_regex():
     regex_string += ')'
     return re.compile(regex_string)
 
-def generate_xereg():
+def generate_xeger():
     xeger_string = '(\d{1' + '}'
     for key in calibration_dict:
         xeger_string += f'|{key[::-1]}'
@@ -30,7 +30,7 @@ def generate_xereg():
     return re.compile(xeger_string)
 
 regex = generate_regex()
-xeger = generate_xereg()
+xeger = generate_xeger()
 
 def extract_calibration(raw_string):
     first_number = re.search(regex, raw_string).group(0)
