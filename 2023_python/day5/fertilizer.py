@@ -1,7 +1,7 @@
 import re
 
 def read_input():
-    f = open("input.txt", "r")
+    f = open("test_input.txt", "r")
     return f.read().replace(":", "").split("\n")
 
 def raw_almanac_to_almanac_dict(raw_almanac):
