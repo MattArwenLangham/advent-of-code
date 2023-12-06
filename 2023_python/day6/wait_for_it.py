@@ -1,4 +1,3 @@
-import re
 import string
 
 def read_input():
@@ -13,12 +12,9 @@ def pair_boat_result_times_and_distance(raw_boat_results):
 def find_boat_result_possibilities(boat_result):
     possible_times = 0
     time, distance_to_find = boat_result
-    button_hold = 0
-    test_time = 0
+    
     for button_hold in range(int(time)):
-        test_time -= button_hold
-        speed = button_hold
-        distance_travelled = speed * (int(time) - button_hold)
+        distance_travelled = button_hold * (int(time) - button_hold)
         if distance_travelled > int(distance_to_find):
             possible_times += 1
     return possible_times
