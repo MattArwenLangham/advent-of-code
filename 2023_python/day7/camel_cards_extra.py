@@ -5,17 +5,21 @@ def read_input():
     return f.read().split("\n")
 
 def calculate_rank_of_hand(hand):
+    if not hand == 'JJJJJ':
+        hand = hand.replace('J', '')
     hand_set = set(hand)
+
     if len(hand_set) == 1:
         return '7'
     elif len(hand_set) == 2:
         for value in hand_set:
-            if hand.count(value) == 4:
+            if hand.count(value) + (5 - len(hand)) == 4:
                 return '6'
         return '5'
+        
     elif len(hand_set) == 3:
         for value in hand_set:
-            if hand.count(value) == 3:
+            if hand.count(value) + (5 - len(hand)) == 3:
                 return '4'
         return '3'
     elif len(hand_set) == 4:
@@ -24,7 +28,7 @@ def calculate_rank_of_hand(hand):
         return '1'
     
 def calculate_strength_of_hand(hand):
-    values = {'T': '10', 'J': '11', 'Q': '12', 'K': '13', 'A': '14'}
+    values = {'T': '10', 'J': '01', 'Q': '12', 'K': '13', 'A': '14'}
     hand_strength = re.sub(r'(\d)', r'0\1', hand)
     for value, strength in values.items():
         hand_strength = hand_strength.replace(value, strength)
@@ -51,4 +55,3 @@ def calculate_total_winnings(weightings_and_bets):
 hands_and_bets = read_input()
 weightings_and_bets = calculate_ranks_of_hands(hands_and_bets)
 result = calculate_total_winnings(weightings_and_bets)
-print(result)
