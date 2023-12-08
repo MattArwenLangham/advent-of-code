@@ -8,14 +8,12 @@ def read_input():
 def map_documents_to_map_dict(map_documents):
     map_dict = {}
     directions = map_documents.pop(0)
-    print(directions)
     for document in map_documents:
-        print(document)
         key, left, right = document.split(" ")
         map_dict[key] = [left, right]
     return directions, map_dict
 
-def get_total_steps(directions, map_dict):
+def find_steps_in_map_dict(map_dict, directions):
     total_steps = 0
     current_direction_pos = 0
     current_key = "AAA"
@@ -36,10 +34,6 @@ def get_total_steps(directions, map_dict):
         total_steps += 1
         current_direction_pos += 1
 
-    return total_steps
-
-def find_steps_in_map_dict(map_dict, directions):
-    total_steps = get_total_steps(directions, map_dict)
     return total_steps
 
 map_documents = read_input()
