@@ -15,11 +15,8 @@ def map_documents_to_map_dict(map_documents):
     return directions, map_dict
 
 def find_starting_keys(map_dict):
-    key_list = []
-    for key in map_dict.keys():
-        if key.endswith("A"):
-            key_list.append(key)
-    return key_list
+    return [key for key in map_dict.keys() if key.endswith("A")]
+
 
 def find_lowest_steps(map_dict, directions, start_key):
     total_steps = 0
@@ -33,10 +30,7 @@ def find_lowest_steps(map_dict, directions, start_key):
         direction = directions[current_direction_pos]
         left, right = map_dict[current_key]
 
-        if direction is 'L':
-            current_key = left
-        else:
-            current_key = right
+        current_key = left if direction == 'L' else right
         
         total_steps += 1
         current_direction_pos += 1
