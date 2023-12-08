@@ -23,13 +23,9 @@ def find_steps_in_map_dict(map_dict, directions):
             current_direction_pos = 0
 
         direction = directions[current_direction_pos]
-
         left, right = map_dict[current_key]
 
-        if direction is 'L':
-            current_key = left
-        else:
-            current_key = right
+        current_key = left if direction == 'L' else right
         
         total_steps += 1
         current_direction_pos += 1
