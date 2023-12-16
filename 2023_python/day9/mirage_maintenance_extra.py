@@ -7,7 +7,7 @@ def predict_next_lines_of_data(first_line_of_data):
     lines_of_data = [first_line_of_int]
     line_of_data = first_line_of_int
 
-    while not all(value == 0 for value in line_of_data):
+    while any(line_of_data):
         new_line_of_data = []
         for index, value in enumerate(line_of_data):
             if index > 0:
