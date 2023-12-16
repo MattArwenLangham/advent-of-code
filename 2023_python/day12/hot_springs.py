@@ -43,10 +43,10 @@ def get_sum_of_valid_possibilities(hot_springs_fieldmap):
         hot_springs_line_map.count("#")
 
         possibility_list = get_all_possibilities(spaces_empty, groups_of_broken, contigious_broken_list)
+        print(len(possibility_list))
         valid_possibilities += get_num_of_valid_possibilities(possibility_list, hot_springs_line_map)
 
     return valid_possibilities
 
 hot_springs_fieldmap = read_input()
 result = get_sum_of_valid_possibilities(hot_springs_fieldmap)
-print(result)
