@@ -33,6 +33,7 @@ def rate_parts(part_ratings):
             part_to_compare = rule_to_compare[0]
             comparison = rule_to_compare[1]
             value_to_compare = rule_to_compare[2]
+
             if part_to_compare == 'x':
                 part_rating = part_rating_list[0]
             elif part_to_compare == 'm':
