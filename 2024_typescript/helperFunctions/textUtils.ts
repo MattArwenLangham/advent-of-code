@@ -1,18 +1,16 @@
 import * as fs from 'fs';
 
+
 /**
- * Reads a file and splits its content into an array of strings.
+ * Reads and returns a file as a string.
  * @param filePath - Path to the file to read.
- * @param separator - Separator for splitting the file content (default: "\r?\n").
- * @returns An array of strings containing the split file content.
+ * @returns File data as string
  */
-export function toArray(filePath: string, seperator: string = "\r"): string[] {
+export function getData(filePath: string): string {
     try {
-        const data: string = fs.readFileSync(filePath.toString(), 'utf8');
-        return data.split(seperator);
+        return fs.readFileSync(filePath, 'utf8');
     } catch (error) {
         console.error(`Error reading file at ${error}: `, error);
-        return [];
+        return "";
     }
 }
-
