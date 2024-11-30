@@ -11,7 +11,7 @@ export function toArray(filePath: string, seperator: string = "\r"): string[] {
         const data: string = fs.readFileSync(filePath.toString(), 'utf8');
         return data.split(seperator);
     } catch (error) {
-        console.error(`Error reading file at $(error): `, error);
+        console.error(`Error reading file at ${error}: `, error);
         return [];
     }
 }
