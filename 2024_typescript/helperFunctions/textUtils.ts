@@ -26,6 +26,6 @@ export function getDir(url: URL|string, test: boolean = false): string {
     const __filename = fileURLToPath(url);
     const __dirname = path.dirname(__filename);
     const directory = path.basename(__dirname);
-    const filename = test ? "test-input.txt" : "input.txt"
+    const filename = test ? "testInput.txt" : "input.txt"
     return directory + "/" + filename
 }
