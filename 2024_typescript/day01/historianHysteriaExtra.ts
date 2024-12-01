@@ -22,10 +22,12 @@ function findOccurancesBetweenLists(lists: [number[], number[]]): number {
     let pointerPos = 0;
 
     for (const numToCheck of numsToCheck){
-        let occurances = 0;
         if (!occuranceMemory[numToCheck]){
-            while (pointerPos !== listToCheck.length - 1){
+            let occurances = 0;
+            
+            while (pointerPos < listToCheck.length){
                 const num = listToCheck[pointerPos]
+
                 if (numToCheck === num){
                     occurances++
                 } else if (numToCheck < num){
@@ -33,8 +35,10 @@ function findOccurancesBetweenLists(lists: [number[], number[]]): number {
                 }
                 pointerPos++
             }
+
             occuranceMemory[numToCheck] = occurances * numToCheck;
         }
+
         sumSimilarityScore += occuranceMemory[numToCheck]
     }
 
