@@ -8,4 +8,5 @@ Beware though, these are by no means the best, most efficient or cleanest way to
 Please don't put me on the 0y list Santax clause.
 
 2022 - Javascript (Incomplete)
-2023 - Python (Ongoing)
+2023 - Python (Incomplete)
+2024 - Typescript (Ongoing - No prizes for guessing if it's getting completed...)
