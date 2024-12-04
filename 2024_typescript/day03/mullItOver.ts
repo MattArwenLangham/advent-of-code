@@ -1,6 +1,6 @@
 import * as txt from '../helperFunctions/textUtils'
 
-const filePath = txt.getDir(import.meta.url, false);
+const filePath = txt.getDir(import.meta.url, true);
 const rawData = txt.getData(filePath)
 
 // console.log(rawData)
