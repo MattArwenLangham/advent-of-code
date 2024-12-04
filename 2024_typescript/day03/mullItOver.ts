@@ -3,11 +3,7 @@ import * as txt from '../helperFunctions/textUtils'
 const filePath = txt.getDir(import.meta.url, true);
 const rawData = txt.getData(filePath)
 
-// console.log(rawData)
-
 const REGEXQUERY = /mul\(\d{1,3},\d{1,3}\)/g
-
-//
 
 function processData(rawData: string): string[]|null {
     return rawData.toString().match(REGEXQUERY);
