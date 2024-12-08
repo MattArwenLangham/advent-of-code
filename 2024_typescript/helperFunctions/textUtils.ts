@@ -29,3 +29,9 @@ export function getDir(url: URL|string, test: boolean = false): string {
     const filename = test ? "testInput.txt" : "input.txt"
     return directory + "/" + filename
 }
+
+export function renderMap(map: string[][]){
+    for (const line of map){
+        console.log(line.toString().replaceAll(",", ""))
+    }
+}
